@@ -1,0 +1,8 @@
+<div *ngIf="!this.pokemons; else pokemonsList" >
+
+</div>
+<ng-template #pokemonsList>
+  <div *ngFor="let pokemon of this.pokemons">
+    <app-card [img]="pokemon.details?.sprites.other.dream_world.front_default" [title]="pokemon.name"></app-card>
+  </div>
+</ng-template>
