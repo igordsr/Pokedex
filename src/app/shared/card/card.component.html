@@ -1,17 +1,14 @@
 <span class="background">
-  <span class="centering">
+  <span class="bg-light border rounded centering">
     <section class="articles">
       <article>
         <figure>
           <img [src]="this.img" alt="Preview" title="Preview" />
         </figure>
         <div class="article-preview">
-          <h2>{{this.title}}</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-            Praesent in mauris eu tortor porttitor accumsan.
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-            Praesent in mauris eu tortor porttitor accumsan.
+          <h2><strong>{{this.title}}</strong></h2>
+          <p *ngIf="this.details">
+            {{this.details}}
             <a href="#" class="read-more" title="Read More">
               Read more
             </a>
