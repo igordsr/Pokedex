@@ -7,7 +7,7 @@ import { SharedRoutingModule } from './shared-routing.module';
 
 @NgModule({
   declarations: [
-    CardComponent
+    CardComponent,
   ],
   imports: [
     CommonModule,

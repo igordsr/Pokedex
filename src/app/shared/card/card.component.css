@@ -59,6 +59,10 @@
     background: white;
 }
 
+.article-preview h2::first-letter{
+  text-transform: uppercase;
+}
+
 .articles figure {
     width: 100%;
     height: 200px;
