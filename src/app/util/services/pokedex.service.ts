@@ -1,20 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, tap } from "rxjs/operators";
+import { map, tap } from 'rxjs/operators';
+
+import { Pokedex } from '../../models/pokedex';
 import { environment } from './../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokedexService {
-
+  private log = 0;
 
   constructor(private httpClient: HttpClient) {
 
   }
 
-  public getAllPokemons(offset:number, limitnumber:number):Observable<any>{
+  public getAllPokemons(offset:number, limitnumber:number):Observable<Pokedex>{
     return this.httpClient.get<any>(`${environment.pokeApiUrl}/pokemon/?offset=${offset}&limit=${limitnumber}`).pipe(
       tap( res => {
         res.results.map( (resPokemons: any) => {

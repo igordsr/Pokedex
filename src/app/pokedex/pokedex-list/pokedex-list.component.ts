@@ -7,6 +7,7 @@ import { ItemsPerPage, PokedexService } from './../../util/index';
   styleUrls: ['./pokedex-list.component.css']
 })
 export class PokedexListComponent implements OnInit {
+  public filter:string = '';
   public pokemons!: any;
   public pagination: number = 1;
   public itemsPerPage:number = ItemsPerPage.HUNDRED;
@@ -23,6 +24,7 @@ export class PokedexListComponent implements OnInit {
   }
 
   public renderPage(event: number):void {
+    this.filter = '';
     this.pagination = event;
     this.getPokemons(this.itemsPerPage* (this.pagination-1), this.itemsPerPage);
   }

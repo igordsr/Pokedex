@@ -2,10 +2,11 @@
 
 </div>
 <ng-template #pokemonsList>
+  <app-research-field (onTyping)="filter = $event" [value]="this.filter"></app-research-field>
   <h6 class="d-flex justify-content-end">Total Pokémons<span class="badge bg-primary">{{this.pokemons.count}}</span></h6>
   <div class="container border rounded py-5 text-center container-list">
     <div class="row"
-      *ngFor="let pokemon of this.pokemons.results | paginate : { itemsPerPage: this.itemsPerPage, currentPage: pagination, totalItems: this.pokemons.count}"
+      *ngFor="let pokemon of this.pokemons.results  | paginate : { itemsPerPage: this.itemsPerPage, currentPage: pagination, totalItems: this.pokemons.count} | filterPokemonByNamePipe: this.filter"
       class="card-container">
       <app-card [img]="pokemon.details?.sprites.other.dream_world.front_default" [title]="pokemon.name"></app-card>
     </div>
