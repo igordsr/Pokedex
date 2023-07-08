@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-start">
+  <div class="row">
+    <div class="col">
+      <label for="pokemonName" class="form-label">Pokemon Name</label>
+      <input appClearTextFromInputs type="text" class="form-control" id="pokemonName" autofocus
+      (keyup)="this.debounce.next($any($event.target).value)"
+      [value]="this.value">
+    </div>
+  </div>
+</div>

@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { PokedexComponent } from './pokedex/pokedex.component';
+
+const routes: Routes = [
+  {
+    path : '',
+    component: PokedexComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

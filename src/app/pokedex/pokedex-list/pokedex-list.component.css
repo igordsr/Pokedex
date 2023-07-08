@@ -1,0 +1,10 @@
+.container-list{
+  background-color: #54b564;
+  height:700px;
+  overflow:hidden;
+  overflow-y:scroll;
+}
+
+.card-container{
+  display: inline-block;
+}

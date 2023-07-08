@@ -1,0 +1,29 @@
+<div *ngIf="!this.pokemons; else pokemonsList">
+
+</div>
+<ng-template #pokemonsList>
+  <app-research-field (onTyping)="filter = $event" [value]="this.filter"></app-research-field>
+  <h6 class="d-flex justify-content-end">Total Pokémons<span class="badge bg-primary">{{this.pokemons.count}}</span></h6>
+  <div class="container border rounded py-5 text-center container-list">
+    <div class="row"
+      *ngFor="let pokemon of this.pokemons.results  | paginate : { itemsPerPage: this.itemsPerPage, currentPage: pagination, totalItems: this.pokemons.count} | filterPokemonByNamePipe: this.filter"
+      class="card-container">
+      <app-card [img]="pokemon.details?.sprites.other.dream_world.front_default" [title]="pokemon.name"></app-card>
+    </div>
+  </div>
+  <div #Paginator class="d-flex justify-content-end">
+    <div class="mt-4">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="itemsPerPage">Items per page</label>
+        </div>
+        <select class="form-select" aria-label="Default select example" id="itemsPerPage" (change)="onChange($event)">
+          <option *ngFor="let key of enumKeys" [value]="key">{{key}}</option>
+        </select>
+      </div>
+    </div>
+    <nav class="mt-4">
+      <pagination-controls (pageChange)="renderPage($event)"></pagination-controls>
+    </nav>
+  </div>
+</ng-template>
